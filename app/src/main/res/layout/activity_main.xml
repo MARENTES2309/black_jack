@@ -15,7 +15,11 @@
         android:textColor="#F2C57C"
         android:id="@+id/num"
         android:textSize="200dp"/>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/texto"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -23,6 +27,15 @@
         android:text="SOLICITAR NUMERO"
         android:layout_centerHorizontal="true"
         android:onClick="onClick"
+        android:id="@+id/uno"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENVIAR NUMERO"
+        android:onClick="onClick"
+        android:id="@+id/dos"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         />
 
