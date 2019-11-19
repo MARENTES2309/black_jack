@@ -15,14 +15,9 @@
         android:textColor="#F2C57C"
         android:id="@+id/num"
         android:textSize="200dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/texto"
-        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SOLICITAR NUMERO"
         android:layout_centerHorizontal="true"
@@ -30,13 +25,29 @@
         android:id="@+id/uno"
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ENVIAR NUMERO"
         android:onClick="onClick"
         android:id="@+id/dos"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/uno"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:id="@+id/tres"
+        android:layout_below="@+id/dos"
+        android:layout_centerHorizontal="true"
+        android:text="Obtener Datos"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:id="@+id/cuatro"
+        android:layout_below="@+id/tres"
+        android:layout_centerHorizontal="true"
+        android:text="Borrar Datos"/>
 
 </RelativeLayout>

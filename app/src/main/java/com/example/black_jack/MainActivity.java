@@ -3,6 +3,7 @@ package com.example.black_jack;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,13 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String url = "http://ramiro174.com/api/numero";
     String url2 = "http://ramiro174.com/api/enviar/numero";
+    String url4 ="http://ramiro174.com/api/borrar/numero";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        volley = VolleyS.getInstance(this.getApplicationContext());
 
+        volley = VolleyS.getInstance(this.getApplicationContext());
         fRequestQueue = volley.getRequestQueue();
 
     }
@@ -48,9 +51,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case  R.id.dos:
         enviarnumero();
         break;
+            case  R.id.tres:
+                SegundoActivity();
+                break;
+            case R.id.cuatro:
+                BorrarNumero();
+                break;
         }
     }
 
+    private void SegundoActivity(){
+        Intent st= new Intent(this, Resultados.class);
+        startActivity(st);
+    }
 
     private void obtenerNumero() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -106,5 +119,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         fRequestQueue.add(jsonObjectRequest);
     }
+
+    private void BorrarNumero(){
+        JsonObjectRequest jsonObjectRequest =new JsonObjectRequest(Request.Method.GET, url4, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(MainActivity.this,"Se borro correctamente",Toast.LENGTH_SHORT).show();
+            }
+        },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("OnErrorResponse1: ", error.toString());
+            }
+        });
+        fRequestQueue.add(jsonObjectRequest);
+    }
+
 
 }
